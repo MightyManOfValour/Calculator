@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Weather Advice App</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Open+Sans&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div id="bodq">
+        <div class="loader-wrapper">
+            <div class="loader"></div>
+        </div>
+        <div class="weather-container">
+            <h1>Weather Advisor</h1>
+            <div class="weather-card">
+                <div class="input-group">
+                    <label for="weather">What's the weather like today?</label>
+                    <select id="weather" class="weather-select">
+                        <option value="">-- Select Weather --</option>
+                        <option value="sunny">Sunny</option>
+                        <option value="cloudy">Cloudy</option>
+                        <option value="windy">Windy</option>
+                        <option value="rainy">Rainy</option>
+                        <option value="clear">Clear</option>
+                        <option value="foggy">Foggy</option>
+                        <option value="mild">Mild</option>
+                        <option value="cold">Cold</option>
+                        <option value="humid">Humid</option>
+                        <option value="snowy">Snowy</option>
+                        <option value="stormy">Stormy</option>
+                        <option value="dry">Dry</option>
+                        <option value="hazy">Hazy</option>
+                        <option value="hot">Hot</option>
+                    </select>
+                </div>
+                
+                <button class="advice-button" onclick="btnpressed()">Get Weather Advice</button>
+                
+                <div class="output-container">
+                    <p class="output-label">The weather advice is:</p>
+                    <div id="output_text" class="advice-text"></div>
+                </div>
+            </div>
+            
+
+        </div>
+
+
+        <script>
+                    window.addEventListener("load", function() {
+                        document.querySelector('.loader-wrapper').style.opacity = '0';
+                        setTimeout(function() {
+                             document.querySelector('.loader-wrapper').style.display = 'none';
+                        }, 500);
+                    });
+        </script>
+        <script>
+            function btnpressed(){
+                var weather_selected = document.getElementById("weather").value;
+                var advice = "Please select a weather condition to get advice.";
+                var icon = "";
+
+                switch(weather_selected){
+                    case "sunny":
+                        advice = "Wear your sunglasses. Stay hydrated by drinking plenty of fluids, seek shade during the hottest part of the day, and wear appropriate clothing and sunscreen to minimize sun exposure.";
+                        icon = "☀️";
+                        break;
+                    case "cloudy":
+                        advice = "Consider indoor activities like reading, baking, or spending time with loved ones.";
+                        icon = "☁️";
+                        break;
+                    case "windy":
+                        advice = "If you must be outside, take precautions such as using handrails on walkways, being aware of your surroundings, and drive cautiously.";
+                        icon = "🌬️";
+                        break;
+                    case "rainy":
+                        advice = "Carry an umbrella or wear a raincoat, and consider waterproof bags or pouches for your belongings.";
+                        icon = "🌧️";
+                        break;
+                    case "clear":
+                        advice = "Since clear skies often mean warm temperatures, it's crucial to avoid prolonged sun exposure, which can lead to dehydration and overheating.";
+                        icon = "✨";
+                        break;
+                    case "foggy":
+                        advice = "Wear bright or reflective clothing to stand out, walk facing traffic, and be extra careful when crossing streets. Avoid distractions like headphones or cellphones.";
+                        icon = "🌫️";
+                        break;
+                    case "mild":
+                        advice = "Wear layers to adjust to temperature changes, and choose breathable fabrics.";
+                        icon = "🌤️";
+                        break;
+                    case "cold":
+                        advice = "Dress in layers, wear appropriate footwear, prioritize staying warm and visible.";
+                        icon = "❄️";
+                        break;
+                    case "humid":
+                        advice = "Choose lightweight, loose-fitting clothing that allows for air circulation and sweat evaporation, prioritize staying cool and hydrated.";
+                        icon = "💧";
+                        break;
+                    case "snowy":
+                        advice = "Avoid rushing, use handrails when available, and consider penguin-like steps to maintain balance, prioritize wearing appropriate footwear, and being extra cautious of ice.";
+                        icon = "☃️";
+                        break;
+                    case "stormy":
+                        advice = "Prioritize safety by seeking shelter, being aware of your surroundings, and minimizing exposure to the elements. If caught in a thunderstorm, find a sturdy building or crouch low to the ground, away from tall objects.";
+                        icon = "⛈️";
+                        break;
+                    case "dry":
+                        advice = "Prioritize sun protection, hydration, and awareness of your surroundings. This includes wearing sunscreen, a hat, and sunglasses, carrying water.";
+                        icon = "🏜️";
+                        break;
+                    case "hazy":
+                        advice = "Wear bright, reflective clothing, avoid distractions like headphones, and be extra cautious when crossing streets. Walk facing traffic, stay to the right, and be aware of your surroundings.";
+                        icon = "😶‍🌫️";
+                        break;
+                    case "hot":
+                        advice = "Stay hydrated by drinking plenty of water, even before you feel thirsty. Wear light-colored, loose-fitting, and breathable clothing to help your body stay cool, prioritize hydration, sun protection, and appropriate clothing.";
+                        icon = "🔥";
+                        break;
+                }
+                
+                if (weather_selected) {
+                    document.getElementById("output_text").innerHTML = `<span class="weather-icon">${icon}</span> ${advice}`;
+                } else {
+                    document.getElementById("output_text").innerHTML = advice;
+                }
+            }
+        </script>
+        </div>
+
+        <div id="myLink">
+            <p>© 2023 Phōtizō. All rights reserved.</p>
+        </div>
+    </body>
+</html>
